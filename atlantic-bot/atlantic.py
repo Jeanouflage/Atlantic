@@ -60,6 +60,32 @@ async def eightball(interaction: discord.Interaction, question: str = None):
     eightballRandom = random.choice(eightballList)
     await interaction.response.send_message(eightballRandom)
 
+@bot.tree.command(name="snowball", description="Throw a snowball at Atlantic.")
+async def snowball(interaction: discord.Interaction):
+    try:
+        with open("snowball.txt", "r") as file:
+            lines = file.readlines()
+            if not lines:
+              await interaction.response.send_message("Error: File is empty.")
+              return
+        randomLine = random.choice(lines).strip().replace("\\n", "\n")
+        await interaction.response.send_message(randomLine)
+    except FileNotFoundError:
+        await interaction.response.send_message("Error: File not found.")
+    
+@bot.tree.command(name="happychristmas", description="Wish Atlantic a Happy Christmas.")
+async def happychristmas(interaction: discord.Interaction):
+    try:
+        with open("happychristmas.txt", "r") as file:
+            lines = file.readlines()
+            if not lines:
+              await interaction.response.send_message("Error: File is empty.")
+              return
+        randomLine = random.choice(lines).strip().replace("\\n", "\n")
+        await interaction.response.send_message(randomLine)
+    except FileNotFoundError:
+        await interaction.response.send_message("Error: File not found.")
+
 # Run the bot
 @bot.event
 async def on_ready():
