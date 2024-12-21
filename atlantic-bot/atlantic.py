@@ -22,7 +22,7 @@ async def aboutme(interaction: discord.Interaction):
 
 @bot.tree.command(name="commands", description="Atlantic's commands.")
 async def commands(interaction: discord.Interaction):
-    await interaction.response.send_message(f"My commands: /hello /aboutme /commands /goodvibes /roast /8ball")
+    await interaction.response.send_message(f"My commands: /hello /aboutme /commands /goodvibes /roast /8ball /happychristmas /snowball")
 
 @bot.tree.command(name="goodvibes", description="Get some good vibes.")
 async def goodvibes(interaction: discord.Interaction):
